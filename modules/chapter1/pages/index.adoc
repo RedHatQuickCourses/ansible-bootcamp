@@ -2,7 +2,7 @@
 
 Red Hat provides a set of tested and supported topologies for Red Hat Ansible Automation Platform 2.6 to offer users opinionated deployment options. These models are designed to ensure that all platform features and capabilities are available immediately upon deployment without requiring additional configuration. By using these reference architectures, organizations can align their installation with their specific infrastructure and organizational needs: 
 
-image::4.1.png[]
+image::2.1.png[]
 
 The deployment models are categorized into two primary types based on scale and reliability:
 

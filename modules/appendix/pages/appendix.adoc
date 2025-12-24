@@ -1,3 +1,20 @@
 = Appendix
 
-https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html-single/tested_deployment_models/index[Tested deployment models,  window=_blank]
+For additional reference and deeper learning on AAP in Azure, review the following resources:
+
+- https://access.redhat.com/articles/6983528[Red Hat Ansible Automation Platform on Azure].
+- https://access.redhat.com/articles/6973251[Networking and Prerequisites for AAP on Azure].
+- https://redhat.enterprise.slack.com/archives/C068PHHMF2T[Slack - Ansible Cloud Services].
+
+== Tested Topologies for AAP 2.6
+
+- https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html-single/tested_deployment_models/index[Tested deployment models,  window=_blank]
+
+
+== Automation Developer Experience
+
+- https://github.com/gitleaks/gitleaks
+- https://pre-commit.com
+- https://github.com/redhat-cop/infra.aap_configuration/blob/devel/.pre-commit-config.yaml
+- https://ansible.readthedocs.io/projects/dev-tools/
+- https://ansible.readthedocs.io/projects/vscode-ansible/
