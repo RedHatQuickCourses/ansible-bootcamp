@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Section 1 :: FIXME Course Title</title>
+    <title>RPM Installation :: Ansible Boot Camp Day 1</title>
     <link rel="prev" href="index.html">
     <link rel="next" href="section2.html">
     <meta name="generator" content="Antora 3.1.3">
@@ -15,7 +15,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
-      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">FIXME Course Title</a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Ansible Boot Camp Day 1</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -35,7 +35,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">FIXME Course Title</a></h3>
+    <h3 class="title"><a href="../index.html">Ansible Boot Camp Day 1</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -55,16 +55,16 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="index.html">Chapter 1</a>
+    <a class="nav-link" href="index.html">Tested Topologies for AAP 2.6</a>
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="section1.html">Section 1</a>
+    <a class="nav-link" href="section1.html">RPM Installation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section2.html">Section 2</a>
+    <a class="nav-link" href="section2.html">Containerized Installation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section3.html">Section 3</a>
+    <a class="nav-link" href="section3.html">= Operator Installation</a>
   </li>
 </ul>
   </li>
@@ -111,12 +111,12 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">FIXME Course Title</span>
+    <span class="title">Ansible Boot Camp Day 1</span>
     <span class="version">1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="../index.html">FIXME Course Title</a>
+      <a class="title" href="../index.html">Ansible Boot Camp Day 1</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">1</a>
@@ -134,9 +134,9 @@
   <a href="../index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">FIXME Course Title</a></li>
-    <li><a href="index.html">Chapter 1</a></li>
-    <li><a href="section1.html">Section 1</a></li>
+    <li><a href="../index.html">Ansible Boot Camp Day 1</a></li>
+    <li><a href="index.html">Tested Topologies for AAP 2.6</a></li>
+    <li><a href="section1.html">RPM Installation</a></li>
   </ul>
 </nav>
 </div>
@@ -145,26 +145,86 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Section 1</h1>
+<h1 class="page">RPM Installation</h1>
+<div class="paragraph">
+<p>The RPM installer is one of the three primary installation modes for Red Hat Ansible Automation Platform 2.6, alongside the Containerized and Operator modes. It is designed to deploy the platform on virtual machines or bare metal by using RPM packages directly on Red Hat Enterprise Linux (RHEL), where customers manage the entire product and infrastructure lifecycle.</p>
+</div>
+<div class="paragraph">
+<p><strong>Deprecation and Support Status</strong></p>
+</div>
+<div class="paragraph">
+<p>The sources explicitly state that the RPM installer was deprecated in version 2.5 and is scheduled for complete removal in version 2.7. Despite this, it remains supported for RHEL 9 throughout the lifecycle of version 2.6 to facilitate customer migrations to existing supported topologies, such as container-based or operator-based deployments. Organizations are encouraged to consult the <a href="https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html-single/planning_your_upgrade/index#upgrade-support-matrix" target="_blank" rel="noopener">support matrix for specific upgrade and migration paths</a></p>
+</div>
+<div class="paragraph">
+<p><strong>RPM Deployment Topologies</strong>
+Even with its deprecated status, the sources provide two "opinionated" reference architectures for this mode to ensure features are available immediately upon installation:</p>
+</div>
+<div class="paragraph">
+<p>RPM Deployment Topologies
+Even with its deprecated status, the sources provide two "opinionated" reference architectures for this mode to ensure features are available immediately upon installation:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Create multiple copies of this section as needed.</p>
+<p>RPM Growth Topology: This model offers a smaller footprint for organizations that do not require redundancy</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>It is typically tested on a single virtual machine (VM) that houses the platform gateway, automation controller, private automation hub, Event-Driven Ansible, and a managed database</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/1.1.png" alt="1.1">
+</div>
+</div>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Remove any unnecessary sections or chapter pages.</p>
-</li>
+<p>RPM Enterprise Topology: This model is built for production environments requiring high uptime, performance, and scalability</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
-<p>Customize the section as appropriate.</p>
+<p>It uses a redundant configuration with multiple VMs for core components and requires an external load balancer (HAProxy) and an externally managed database</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/1.2.png" alt="1.2">
+</div>
+</div>
 </li>
-<li>
-<p>Ensure that each page contains a manageable amount of content.</p>
+</ol>
+</div>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong>Technical Constraints and Requirements</strong></p>
+</div>
+<div class="paragraph">
+<p>The RPM installation mode has specific requirements and limitations that distinguish it from other modes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Redis Limitation: Unlike other modes, RPM-based deployments do not support external Redis; the service must be colocated on the platform component VMs</p>
+</li>
+<li>
+<p>Infrastructure Minimums: Each VM in these topologies generally requires at least 16 GB RAM, 4 CPUs, and 60 GB of disk space with 3000 IOPS</p>
+</li>
+<li>
+<p>Ansible-Core: While the system-wide package is used for installation, the platform uses ansible-core 2.16 for its control plane and built-in execution environments</p>
+</li>
+<li>
+<p>Networking: Communication between services occurs over standard ports, most notably Port 27199 (Receptor) for the automation mesh and Ports 80/443 for web traffic</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>RPM mode is the old-school, hand-built setup. It’s familiar, proven, and still supported today (v2.6), but it relies on manual assembly and upkeep. Red Hat has made it clear this approach is nearing retirement (v2.7), and the runway is intentional: giving you time to move to modern, automated platforms like Containers or Operator mode before RPM fades out for good.</p>
+</div>
 <nav class="pagination">
-  <span class="prev"><a href="index.html">Chapter 1</a></span>
-  <span class="next"><a href="section2.html">Section 2</a></span>
+  <span class="prev"><a href="index.html">Tested Topologies for AAP 2.6</a></span>
+  <span class="next"><a href="section2.html">Containerized Installation</a></span>
 </nav>
 </article>
   </div>

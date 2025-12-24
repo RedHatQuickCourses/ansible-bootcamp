@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Section 3 :: FIXME Course Title</title>
+    <title>= Operator Installation :: Ansible Boot Camp Day 1</title>
     <link rel="prev" href="section2.html">
     <link rel="next" href="../chapter2/index.html">
     <meta name="generator" content="Antora 3.1.3">
@@ -15,7 +15,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
-      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">FIXME Course Title</a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Ansible Boot Camp Day 1</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -35,7 +35,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">FIXME Course Title</a></h3>
+    <h3 class="title"><a href="../index.html">Ansible Boot Camp Day 1</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -55,16 +55,16 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="index.html">Chapter 1</a>
+    <a class="nav-link" href="index.html">Tested Topologies for AAP 2.6</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section1.html">Section 1</a>
+    <a class="nav-link" href="section1.html">RPM Installation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section2.html">Section 2</a>
+    <a class="nav-link" href="section2.html">Containerized Installation</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="section3.html">Section 3</a>
+    <a class="nav-link" href="section3.html">= Operator Installation</a>
   </li>
 </ul>
   </li>
@@ -111,12 +111,12 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">FIXME Course Title</span>
+    <span class="title">Ansible Boot Camp Day 1</span>
     <span class="version">1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="../index.html">FIXME Course Title</a>
+      <a class="title" href="../index.html">Ansible Boot Camp Day 1</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">1</a>
@@ -134,9 +134,9 @@
   <a href="../index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">FIXME Course Title</a></li>
-    <li><a href="index.html">Chapter 1</a></li>
-    <li><a href="section3.html">Section 3</a></li>
+    <li><a href="../index.html">Ansible Boot Camp Day 1</a></li>
+    <li><a href="index.html">Tested Topologies for AAP 2.6</a></li>
+    <li><a href="section3.html">= Operator Installation</a></li>
   </ul>
 </nav>
 </div>
@@ -145,25 +145,81 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Section 3</h1>
-<div class="ulist">
-<ul>
+<h1 class="page">= Operator Installation</h1>
+<div class="paragraph">
+<p>The Ansible Automation Platform Operator provides cloud-native, push-button deployment of new Ansible Automation Platform instances in your OpenShift environment. The Ansible Automation Platform Operator includes resource types to deploy and manage instances of automation controller and private automation hub. It also includes automation controller job resources for defining and launching jobs inside your automation controller deployments.</p>
+</div>
+<div class="paragraph">
+<p>In the context of Red Hat Ansible Automation Platform (AAP) 2.6, the Operator installation mode is the designated method for deploying the platform within Red Hat OpenShift Container Platform. Unlike the Containerized or RPM modes that run on standard virtual machines or bare metal, the Operator mode leverages OpenShift Operators to manage the lifecycle, deployment, and scaling of the platform’s components as pods within a cluster.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Note: You can deploy multiple isolated instances of Ansible Automation Platform into the same Red Hat OpenShift Container Platform cluster by using a namespace-scoped deployment model. This approach allows you to use the same cluster for several deployments.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are two deployment topologies in this:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>Create multiple copies of this section as needed.</p>
+<p><strong>Operator growth topology</strong>: The growth topology is intended for organizations that are getting started with Ansible Automation Platform and do not require redundancy or higher computing for large volumes of automation. This topology allows for smaller footprint deployments.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/6.1.png" alt="6.1">
+</div>
+</div>
+<div class="paragraph">
+<p>A Single Node OpenShift (SNO) cluster has been tested with the following requirements: 32 GB RAM, 16 CPUs, 128 GB local disk, and 3000 IOPS.</p>
+</div>
+<div class="paragraph">
+<p>The benefits of using this topology are:</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Limited redundancy.</p>
 </li>
 <li>
-<p>Remove any unnecessary sections or chapter pages.</p>
+<p>Lower upfront resource requirements (fewer nodes, shared components).</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Customize the section as appropriate.</p>
+<p><strong>Operator enterprise Topology</strong>: The enterprise topology is intended for organizations that require Ansible Automation Platform to be deployed with redundancy or higher computing for large volumes of automation.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/6.2.png" alt="6.2">
+</div>
+</div>
+<div class="paragraph">
+<p>The above infrastructure topology describes an OpenShift Cluster with 3 primary nodes and 2 worker nodes where each OpenShift Worker node has been tested with the following component requirements: 16 GB RAM, 4 CPUs, 128 GB local disk, and 3000 IOPS.</p>
+</div>
+<div class="paragraph">
+<p>The benefits of using this topology method:</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Designed for large-scale operations with high availability and fault tolerance.</p>
 </li>
 <li>
-<p>Ensure that each page contains a manageable amount of content.</p>
+<p>Optimized for enterprise environments with strict SLAs.</p>
 </li>
-</ul>
+<li>
+<p>Multiple instances for each component: Automation Hub, Controller, etc.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If containerized mode is a modular office in a box, Operator mode is a smart, fully automated skyscraper. The building itself <strong>OpenShift</strong> handles power, climate, and security—managing resources and networking for every floor. When one floor gets crowded, built-in automation <strong>the Operator</strong> expands capacity or reshuffles workloads automatically, keeping everything running smoothly without you lifting a finger.</p>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="section2.html">Section 2</a></span>
+  <span class="prev"><a href="section2.html">Containerized Installation</a></span>
   <span class="next"><a href="../chapter2/index.html">Chapter 2</a></span>
 </nav>
 </article>
