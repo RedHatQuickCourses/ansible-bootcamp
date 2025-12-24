@@ -1,6 +1,45 @@
-= Section 2
+= Containerized Installation
 
-* Create multiple copies of this section as needed.
-* Remove any unnecessary sections or chapter pages.
-* Customize the section as appropriate.
-* Ensure that each page contains a manageable amount of content.
+In the context of Red Hat Ansible Automation Platform *AAP* 2.6, the containerized installation mode is one of three primary methods for deploying the platform, designed specifically for customers using virtual machines *VMs* or bare metal. Unlike the Operator mode which runs on OpenShift, or the deprecated RPM mode, the containerized mode uses Podman to run the platform's components within containers on Red Hat Enterprise Linux *RHEL*. 
+
+The Containerized installation offers two types of deployment topologies from which to choose: 
+
+. *Enterprise topology pattern*: This means that all the components will be installed on different systems for better performance and stability. The Design of the architecture looks like the one below where each component is installed on different servers and the drawn lines show how the components are interacting with each other and on which port the communication is happening. 
++
+image::4.1.png[]
++
+*Enterprise topology* is appropriate for infrastructure that needs: 
+
+.. Lightweight deployment, smaller footprints.
+.. Suitable for scaling or adding mesh.
+.. Designed for deployment with redundancy/HA or higher computing for big volumes of automation.
++
+The benefits of using this topology: 
+
+ .. Protected from the underlying OS changes and system dependencies. 
+ .. Isolated from other applications and are more secure.
+ .. Simplified upgrades
+
+. *All-in-one pattern*: In this, we will be installing all the components in a single system to create a testing environment or POC to understand the working. In this, we are going to do *All-in-one* pattern deployment.
++
+image::4.2.png[]
++
+The above will be deployed on a single system itself where 8433 will be the port for the *Unified UI* to be accessed. 
+
++
+*All-in-one pattern* is suitable for infrastructure according to the below needs: 
+
++
+.. Intended for organizations that are getting started with Ansible Automation Platform.
+.. All-in-one deployment on a single system reduces infrastructure costs. 
+.. Not ideal for scaling or adding mesh.
+.. Suitable for small test environments.
+
++
+The benefits of using this topology: 
+
+- Protected from the underlying OS changes and system dependencies. 
+- Easy to Deploy and manage. 
+
+
+Think of the containerized installation mode as a modular office in a box. Instead of building brick by brick *RPM mode* or moving into a fully managed skyscraper *Operator mode*, you receive ready-made, production-grade modules delivered as containers. Run a single module for a small team *Growth Topology*, or snap many together with shared services to power a full enterprise headquarters *Enterprise Topology*. You own and operate the space — the modules just arrive ready to work.

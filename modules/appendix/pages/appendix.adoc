@@ -1,3 +1,3 @@
 = Appendix
 
-FIXME: Content for Appendix...
+https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html-single/tested_deployment_models/index[Tested deployment models,  window=_blank]
