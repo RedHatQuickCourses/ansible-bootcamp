@@ -1,4 +1,4 @@
-== 1: Introduction: Why AAP on Azure?
+= Introduction: Why AAP on Azure?
 
 link:https://www.redhat.com/en/technologies/management/ansible/azure[Red Hat Ansible® Automation Platform on Microsoft Azure,window=_blank] offers all the benefits of Ansible automation, deployed in your Azure cloud and offered as a managed or self-managed application
 

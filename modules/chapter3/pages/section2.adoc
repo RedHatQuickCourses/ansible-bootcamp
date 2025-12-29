@@ -1,4 +1,4 @@
-== Conclusion
+= Conclusion
 
 In this lab, you have successfully learned essential software development practices and tools that can be applied to automation development:
 

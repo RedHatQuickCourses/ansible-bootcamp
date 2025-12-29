@@ -1,4 +1,4 @@
-== 1: Git
+= Git
 
 While a local directory can be used to manage resources related to automation development, it is generally considered best practice that version control tools be utilized. These days, when speaking of version control, we are referring to link:https://git-scm.com[Git,window=_blank]. Furthermore, to properly scale automation across an enterprise, `git` _proficiency_ is required. 
 
