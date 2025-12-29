@@ -1,17 +1,16 @@
-= Ansible Automation Platform on Azure
+= Automation Developer Experience
 
 [abstract]
-As a group, we will deploy Red Hat Ansible Automation Platform as a managed application on the Microsoft Azure platform. We will provision the platform directly from the Azure Marketplace, configure network access, and validate that we can log into Automation Controller.
+We will explore essential software development practices applied to automation development, including git workflows, secret scanning with pre-commit hooks, and comprehensive testing. This lab covers treating automation as code with proper linting, testing, and CI/CD practices, culminating in an overview of the Ansible Development Tools suite.
 
-Running and managing your own instance of Ansible Automation Platform (AAP) can be complex and time-consuming. To simplify this process, Red Hat offers AAP as a managed application on Microsoft Azure. This allows organizations to leverage the power of Ansible automation without the overhead of managing the underlying infrastructure.
-
-Due to subscription limitations, instead of each student deploying their own instance of Ansible Automation Platform on Azure, together we will collectively perform a single deployment as a class. This approach allows us to focus on understanding the deployment process and key concepts without the need for individual subscriptions. The steps included within this lab can be followed later by each student when they have access to their own or a customers' Azure subscription
+This lab walks through some of the basic software development practices as they apply to automation development. Finally, it concludes with an overview of the Ansible Development Tools. All automation files should be treated as code. This means scanning for code syntax and quality, checking that sensitive assets have not been exposed, and testing your code as much as possible before committing it. Once committed to git and published, consider it public and without effort will be there forever.
 
 == Learning Objectives
 
 After completing this module, you will be able to:
 
-* Understand the benefits of managed AAP deployment on Azure
-* Deploy AAP from the Azure Marketplace
-* Configure networking and security settings within the Azure Portal
-* Access and validate AAP functionality
+* Apply software development best practices to automation code
+* Use git effectively for version control in automation projects
+* Implement pre-commit hooks for code quality and security
+* Set up comprehensive testing frameworks for automation
+* Navigate the Ansible Development Tools ecosystem

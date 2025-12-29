@@ -4,8 +4,8 @@
 
 . **Log in** to the xref:#RHDP-Portal-Links[RHDP portal]
 . **Search** for the catalog entry: **Advanced Automation Bootcamp**.
-+ 
-image::1.png[]
+#+ 
+#image::1.png[]
 
 . **Click** on the catalog entry in the search results.
 . On the catalog page, **click** the **Order** button.
@@ -18,7 +18,7 @@ image::form.png[]
 . **Click** the **Order** button to place your lab order.
 
 === Important Notes:
-- This lab may take approximately **180 minutes** to become ready.
+- This lab may take approximately **FIXME minutes** to become ready.
 - You will receive an **email with access details** once your lab environment is ready.
 - You can also **retrieve lab access** directly from the RHDP portal.
 
