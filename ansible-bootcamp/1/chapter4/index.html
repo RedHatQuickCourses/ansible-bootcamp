@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Appendix :: Ansible Boot Camp Day 1</title>
-    <link rel="prev" href="../chapter3/section2.html">
+    <title>Managing Ansible Content with Private Automation Hub :: Ansible Boot Camp Day 1</title>
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -100,8 +99,8 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="appendix.html">Appendix</a>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
   </li>
 </ul>
   </li>
@@ -134,7 +133,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Ansible Boot Camp Day 1</a></li>
-    <li><a href="appendix.html">Appendix</a></li>
+    <li><a href="index.html">Managing Ansible Content with Private Automation Hub</a></li>
   </ul>
 </nav>
 </div>
@@ -143,88 +142,54 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Appendix</h1>
-<div class="sect1">
-<h2 id="_tested_topologies_for_aap_2_6"><a class="anchor" href="#_tested_topologies_for_aap_2_6"></a>Tested Topologies for AAP 2.6</h2>
+<h1 class="page">Managing Ansible Content with Private Automation Hub</h1>
+<div id="preamble">
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html-single/tested_deployment_models/index" target="_blank" rel="noopener">Tested deployment models</a></p>
-</li>
-</ul>
+<div class="quoteblock abstract">
+<blockquote>
+We will create a custom Collection, publish it to a Private Automation Hub (PAH), build a custom Execution Environment (EE) from a Red Hat certified base image, and finally, run the automation from Ansible Automation Controller.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Content management is a critical component of enterprise automation. Instead of publishing and retrieving content directly from public sources, automation assets will be sourced from a local and trusted content source. This lab will guide you through the process of creating and publishing Ansible Content Collections to a Private Automation Hub, building custom Execution Environments, and integrating them with Ansible Automation Controller.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ansible_automation_platform_on_azure"><a class="anchor" href="#_ansible_automation_platform_on_azure"></a>Ansible Automation Platform on Azure</h2>
+<h2 id="_learning_objectives"><a class="anchor" href="#_learning_objectives"></a>Learning Objectives</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For additional reference and deeper learning on AAP in Azure, review the following resources:</p>
+<p>After completing this module, you will be able to:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://access.redhat.com/articles/6983528">Red Hat Ansible Automation Platform on Azure</a>.</p>
+<p>Understand the role and benefits of Private Automation Hub</p>
 </li>
 <li>
-<p><a href="https://access.redhat.com/articles/6973251">Networking and Prerequisites for AAP on Azure</a>.</p>
+<p>Create and publish custom Ansible Collections</p>
 </li>
 <li>
-<p><a href="https://redhat.enterprise.slack.com/archives/C068PHHMF2T">Slack - Ansible Cloud Services</a>.</p>
+<p>Build custom Execution Environments</p>
+</li>
+<li>
+<p>Integrate Collections with Automation Controller</p>
+</li>
+<li>
+<p>Manage content lifecycle in enterprise environments</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_automation_developer_experience"><a class="anchor" href="#_automation_developer_experience"></a>Automation Developer Experience</h2>
+<h2 id="_helpful_links"><a class="anchor" href="#_helpful_links"></a>Helpful Links</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/gitleaks/gitleaks" class="bare">https://github.com/gitleaks/gitleaks</a></p>
-</li>
-<li>
-<p><a href="https://pre-commit.com" class="bare">https://pre-commit.com</a></p>
-</li>
-<li>
-<p><a href="https://github.com/redhat-cop/infra.aap_configuration/blob/devel/.pre-commit-config.yaml" class="bare">https://github.com/redhat-cop/infra.aap_configuration/blob/devel/.pre-commit-config.yaml</a></p>
-</li>
-<li>
-<p><a href="https://ansible.readthedocs.io/projects/dev-tools/" class="bare">https://ansible.readthedocs.io/projects/dev-tools/</a></p>
-</li>
-<li>
-<p><a href="https://ansible.readthedocs.io/projects/vscode-ansible/" class="bare">https://ansible.readthedocs.io/projects/vscode-ansible/</a></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>For additional reference and deeper learning on managing Ansible content:</p>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_managing_ansible_content_with_private_automation_hub"><a class="anchor" href="#_managing_ansible_content_with_private_automation_hub"></a>Managing Ansible Content with Private Automation Hub</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.ansible.com/ansible/latest/galaxy/user_guide.html">Ansible Galaxy User Guide</a></p>
-</li>
-<li>
-<p><a href="https://docs.ansible.com/ansible/latest/collections_guide/index.html">Ansible Collections Guide</a></p>
-</li>
-<li>
-<p><a href="https://ansible.readthedocs.io/projects/builder/">Ansible Builder Documentation</a></p>
-</li>
-<li>
-<p><a href="https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.5/html/using_automation_hub/index">Private Automation Hub Documentation</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<nav class="pagination">
-  <span class="prev"><a href="../chapter3/section2.html">Section 2</a></span>
-</nav>
 </article>
   </div>
 </main>
