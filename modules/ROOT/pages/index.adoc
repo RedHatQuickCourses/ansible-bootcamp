@@ -28,3 +28,14 @@ On completing this course, you should be able to:
 This course assumes that you have the following prior experience:
 
 - Basic understanding of Git, Linux, Azure, OpenShift and Ansible Automation platform. 
+
+== Contributors
+
+The PTL team acknowledges the valuable contributions of the following Red Hat associates:
+
+- Andrew Block (Distinguished Architect)
+- Walter Bentley (Senior Manager for Ansible Platform Practice)
+- Vinny Valdez (Chief Architect for Automation Domain Specialist)
+- Amrinder Singh (Content Architect)
+- Anna Swicegood (Learning Product Manager)
+

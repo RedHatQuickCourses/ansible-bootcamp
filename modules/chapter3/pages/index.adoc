@@ -14,9 +14,3 @@ After completing this module, you will be able to:
 * Build custom Execution Environments
 * Integrate Collections with Automation Controller
 * Manage content lifecycle in enterprise environments
-
-
-
-== Helpful Links
-
-For additional reference and deeper learning on managing Ansible content:
