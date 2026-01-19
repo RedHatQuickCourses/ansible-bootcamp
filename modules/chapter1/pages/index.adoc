@@ -1,28 +1,16 @@
-= Tested Topologies for AAP 2.6
+= Automation Developer Experience
 
-Red Hat provides a set of tested and supported topologies for Red Hat Ansible Automation Platform 2.6 to offer users opinionated deployment options. These models are designed to ensure that all platform features and capabilities are available immediately upon deployment without requiring additional configuration. By using these reference architectures, organizations can align their installation with their specific infrastructure and organizational needs: 
+[abstract]
+We will explore essential software development practices applied to automation development, including git workflows, secret scanning with pre-commit hooks, and comprehensive testing. This lab covers treating automation as code with proper linting, testing, and CI/CD practices, culminating in an overview of the Ansible Development Tools suite.
 
-image::2.1.png[]
+This lab walks through some of the basic software development practices as they apply to automation development. Finally, it concludes with an overview of the Ansible Development Tools. All automation files should be treated as code. This means scanning for code syntax and quality, checking that sensitive assets have not been exposed, and testing your code as much as possible before committing it. Once committed to git and published, consider it public and without effort will be there forever.
 
-The deployment models are categorized into two primary types based on scale and reliability:
+== Learning Objectives
 
-- *Enterprise Topologies*: Designed for production environments, these models emphasize redundancy, high uptime, performance, and continued scalability
+After completing this module, you will be able to:
 
-- *Growth Topologies*: Tailored for organizations that are resource-constrained or just getting started, these models provide a smaller footprint without built-in redundancy
-
-These topologies are available across three main installation modes: Containers (using Podman on RHEL), Operator (on Red Hat OpenShift), and RPM (on RHEL)
-  
-Note
- The RPM installer is scheduled for removal in version 2.7, though it remains supported in version 2.6 to facilitate migrations.
-
-**Learning Objectives**
-
-By studying and implementing these deployment models, you will be able to:
-
-- Select the appropriate deployment mode (Container, Operator, or RPM) based on whether your environment utilizes virtual machines, bare metal, or OpenShift Container Platform
-
-- Identify the specific infrastructure requirements for your chosen topology and Differentiate between Growth and Enterprise topologies to determine which configuration meets your organizational requirements for redundancy and volume of automation
-
-- Execute a platform installation using provided configuration templates, such as example inventory files for RHEL-based deployments or Custom Resource (CR) files for OpenShift-based deployments
-
-- Understand the role of Automation Mesh, including how to distribute automation work across a network of execution and hop nodes through peer-to-peer connections
+* Apply software development best practices to automation code
+* Use git effectively for version control in automation projects
+* Implement pre-commit hooks for code quality and security
+* Set up comprehensive testing frameworks for automation
+* Navigate the Ansible Development Tools ecosystem
