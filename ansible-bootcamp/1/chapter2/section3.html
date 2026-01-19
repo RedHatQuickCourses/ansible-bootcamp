@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab Environment :: Ansible Boot Camp Day 1</title>
+    <title>Operator Installation :: Ansible Boot Camp Day 1</title>
+    <link rel="prev" href="section2.html">
+    <link rel="next" href="../chapter3/index.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -45,7 +47,7 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="index.html">Lab Environment</a>
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
   </li>
 </ul>
   </li>
@@ -69,16 +71,16 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../chapter2/index.html">Tested Topologies for AAP 2.6</a>
+    <a class="nav-link" href="index.html">Tested Topologies for AAP 2.6</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/section1.html">RPM Installation</a>
+    <a class="nav-link" href="section1.html">RPM Installation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/section2.html">Containerized Installation</a>
+    <a class="nav-link" href="section2.html">Containerized Installation</a>
   </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/section3.html">Operator Installation</a>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="section3.html">Operator Installation</a>
   </li>
 </ul>
   </li>
@@ -155,7 +157,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Ansible Boot Camp Day 1</a></li>
-    <li><a href="index-lab-demo.html">Lab Environment</a></li>
+    <li><a href="index.html">Tested Topologies for AAP 2.6</a></li>
+    <li><a href="section3.html">Operator Installation</a></li>
   </ul>
 </nav>
 </div>
@@ -164,80 +167,83 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Lab Environment</h1>
-<div class="sect1">
-<h2 id="_instructions_to_launch_your_lab_on_the_red_hat_demo_platform_rhdp"><a class="anchor" href="#_instructions_to_launch_your_lab_on_the_red_hat_demo_platform_rhdp"></a>Instructions to Launch Your Lab on the Red Hat Demo Platform (RHDP)</h2>
-<div class="sectionbody">
+<h1 class="page">Operator Installation</h1>
+<div class="paragraph">
+<p>The Ansible Automation Platform Operator provides cloud-native, push-button deployment of new Ansible Automation Platform instances in your OpenShift environment. The Ansible Automation Platform Operator includes resource types to deploy and manage instances of automation controller and private automation hub. It also includes automation controller job resources for defining and launching jobs inside your automation controller deployments.</p>
+</div>
+<div class="paragraph">
+<p>In the context of Red Hat Ansible Automation Platform (AAP) 2.6, the Operator installation mode is the designated method for deploying the platform within Red Hat OpenShift Container Platform. Unlike the Containerized or RPM modes that run on standard virtual machines or bare metal, the Operator mode leverages OpenShift Operators to manage the lifecycle, deployment, and scaling of the platform’s components as pods within a cluster.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Note: You can deploy multiple isolated instances of Ansible Automation Platform into the same Red Hat OpenShift Container Platform cluster by using a namespace-scoped deployment model. This approach allows you to use the same cluster for several deployments.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are two deployment topologies in this:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>Log in</strong> to the <a href="#RHDP-Portal-Links">RHDP portal</a></p>
+<p><strong>Operator growth topology</strong>: The growth topology is intended for organizations that are getting started with Ansible Automation Platform and do not require redundancy or higher computing for large volumes of automation. This topology allows for smaller footprint deployments.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/6.1.png" alt="6.1">
+</div>
+</div>
+<div class="paragraph">
+<p>A Single Node OpenShift (SNO) cluster has been tested with the following requirements: 32 GB RAM, 16 CPUs, 128 GB local disk, and 3000 IOPS.</p>
+</div>
+<div class="paragraph">
+<p>The benefits of using this topology are:</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Limited redundancy.</p>
 </li>
 <li>
-<p><strong>Search</strong> for the catalog entry: <strong>FIXME Lab Catalog Name</strong>.</p>
-</li>
-<li>
-<p><strong>Click</strong> on the catalog entry in the search results.</p>
-</li>
-<li>
-<p>On the catalog page, <strong>click</strong> the <strong>Order</strong> button.</p>
-</li>
-<li>
-<p><strong>Fill out</strong> the required details in the order form.</p>
-</li>
-<li>
-<p><strong>Review the warning</strong> at the bottom of the form and <strong>check the box</strong> labeled:<br>
-<strong>“I confirm that I understand the above warnings.”</strong></p>
-</li>
-<li>
-<p><strong>Click</strong> the <strong>Order</strong> button to place your lab order.</p>
+<p>Lower upfront resource requirements (fewer nodes, shared components).</p>
 </li>
 </ol>
 </div>
-<div class="sect2">
-<h3 id="_important_notes"><a class="anchor" href="#_important_notes"></a>Important Notes:</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>This lab may take approximately <strong>FIXME minutes</strong> to become ready.</p>
 </li>
 <li>
-<p>You will receive an <strong>email with access details</strong> once your lab environment is ready.</p>
-</li>
-<li>
-<p>You can also <strong>retrieve lab access</strong> directly from the RHDP portal.</p>
-</li>
-</ul>
+<p><strong>Operator enterprise Topology</strong>: The enterprise topology is intended for organizations that require Ansible Automation Platform to be deployed with redundancy or higher computing for large volumes of automation.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/6.2.png" alt="6.2">
 </div>
 </div>
-<div class="sect2">
-<h3 id="_how_to_access_your_lab_via_the_rhdp_portal"><a class="anchor" href="#_how_to_access_your_lab_via_the_rhdp_portal"></a>How to Access Your Lab via the RHDP Portal:</h3>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="paragraph">
+<p>The above infrastructure topology describes an OpenShift Cluster with 3 primary nodes and 2 worker nodes where each OpenShift Worker node has been tested with the following component requirements: 16 GB RAM, 4 CPUs, 128 GB local disk, and 3000 IOPS.</p>
+</div>
+<div class="paragraph">
+<p>The benefits of using this topology method:</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
-<p>On the RHDP portal, <strong>click</strong> on the <strong>Services</strong> option in the left-hand menu.</p>
+<p>Designed for large-scale operations with high availability and fault tolerance.</p>
 </li>
 <li>
-<p><strong>Select your lab</strong> from the listings on the right-hand side of the page to view access details.</p>
+<p>Optimized for enterprise environments with strict SLAs.</p>
+</li>
+<li>
+<p>Multiple instances for each component: Automation Hub, Controller, etc.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="RHDP-Portal-Links"><a class="anchor" href="#RHDP-Portal-Links"></a>RHDP Portal Links</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>RedHat associates: <a href="https://demo.redhat.com/" target="_blank" rel="noopener">https://demo.redhat.com/</a></p>
 </li>
-<li>
-<p>RedHat partners: <a href="https://partner.demo.redhat.com/" target="_blank" rel="noopener">https://partner.demo.redhat.com/</a></p>
-</li>
-</ul>
+</ol>
 </div>
+<div class="paragraph">
+<p>If containerized mode is a modular office in a box, Operator mode is a smart, fully automated skyscraper. The building itself <strong>OpenShift</strong> handles power, climate, and security—managing resources and networking for every floor. When one floor gets crowded, built-in automation <strong>the Operator</strong> expands capacity or reshuffles workloads automatically, keeping everything running smoothly without you lifting a finger.</p>
 </div>
-</div>
-</div>
+<nav class="pagination">
+  <span class="prev"><a href="section2.html">Containerized Installation</a></span>
+  <span class="next"><a href="../chapter3/index.html">Managing Ansible Content with Private Automation Hub</a></span>
+</nav>
 </article>
   </div>
 </main>
