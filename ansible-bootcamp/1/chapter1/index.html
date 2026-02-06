@@ -206,6 +206,196 @@ We will explore essential software development practices applied to automation d
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_access_the_dev_spaces_console"><a class="anchor" href="#_access_the_dev_spaces_console"></a>Access the Dev Spaces console</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://access.redhat.com/products/red-hat-openshift-dev-spaces/" target="_blank" rel="noopener">Red Hat OpenShift Dev Spaces</a> provides consistent, reproducible development environments based on the open-source project <a href="https://eclipse.dev/che/" target="_blank" rel="noopener">Eclipse Che</a>.</p>
+</div>
+<div class="paragraph">
+<p>It provides, by default, a Visual Studio Code (VS Code) environment as configured by a <a href="https://devfile.io" target="_blank" rel="noopener">devfile</a>, a YAML file that defines the entire workspace as code—including all necessary tools, runtimes, and project source. This file is used to instantly generate a pre-configured, containerized development environment, ensuring every developer on a team has an identical setup and solving the "it works on my machine" problem.</p>
+</div>
+<div class="sect2">
+<h3 id="_launching_dev_spaces_from_openshift"><a class="anchor" href="#_launching_dev_spaces_from_openshift"></a>Launching Dev Spaces from OpenShift</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Launch the Red Hat OpenShift Cluster from the RHDP login page.</p>
+</li>
+<li>
+<p>Select the <strong>htpasswd_provider</strong> button and use the credentials provided in the RHDP login page to login to the OpenShift console.</p>
+</li>
+<li>
+<p>Use the 9-block icon in the upper right to launch <em>Red Hat OpenShift Dev Spaces</em> directly from the OpenShift console header.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/intro-dev_spaces_shortcut.png" alt="OpenShift console header showing the 9-block application launcher icon for quick access to Dev Spaces">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dev_spaces_workspace"><a class="anchor" href="#_dev_spaces_workspace"></a>Dev Spaces Workspace</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_launching_a_specific_dev_spaces_workspace"><a class="anchor" href="#_launching_a_specific_dev_spaces_workspace"></a>Launching a specific Dev Spaces Workspace</h3>
+<div class="paragraph">
+<p>Once you have launched the OpenShift Dev Spaces console, use the following steps toe access your Ansible Dev Space workspace.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Login via OpenShift authentication using the same credentials as the OpenShift console</p>
+</li>
+<li>
+<p>Select <strong>Allow selected permissions</strong> to authorize access and launch the console</p>
+</li>
+<li>
+<p>Scroll down and select the workspace titled <strong>Ansible Dev Space</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/intro3.png" alt="Dev Spaces workspace selection page showing available workspaces including Ansible Dev Space">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It will take a few minutes for the Dev Spaces instance to initialize. When it has loaded, a Visual Studio Code interface will appear.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/intro4.png" alt="Dev Spaces workspace loading screen showing VS Code interface initialization">
+</div>
+</div>
+</li>
+<li>
+<p>Click the <strong>Trust Publishers and Install</strong> button to trust the extension publishers that are included within the Dev Spaces workspace</p>
+</li>
+<li>
+<p>Click the <strong>Yes, I trust the Authors</strong> button to trust the workspace authors (your instructors).</p>
+</li>
+<li>
+<p>Wait a few minutes until the additional extension icons appear for Ansible and OpenShift on the left side.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/intro5.png" alt="VS Code interface in Dev Spaces showing Ansible and OpenShift extension icons in the left sidebar">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ansible_and_openshift_extensions"><a class="anchor" href="#_ansible_and_openshift_extensions"></a>Ansible and OpenShift Extensions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For this lab, we have have provided a <a href="https://code.visualstudio.com/docs/editing/workspaces/workspaces" target="_blank" rel="noopener">.code-workspace</a> configuration that included these extensions along with additional configurations to curate your development environment. See <a href="https://github.com/jeffcpullen/devspaces-example/blob/main/devspaces.code-workspace" class="bare">https://github.com/jeffcpullen/devspaces-example/blob/main/devspaces.code-workspace</a> for the source of this workspace configuration.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on the <strong>Ansible</strong> extension icon to access the Ansible Development Tools extension (covered in a subsequent lab)</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/intro6.png" alt="Ansible extension interface in VS Code showing available Ansible development tools">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_user_credentials_in_workspaces"><a class="anchor" href="#_user_credentials_in_workspaces"></a>User Credentials in Workspaces</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This section describes a key feature of OpenShift Dev Spaces which enables secure access to git repositories. These details are shared for informational purposes only. No action is required to be performed in your Dev Spaces workspace.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>OpenShift Dev Spaces includes the capability to store user credentials for Git repositories, such as Personal Access Tokens (PATs), which can be applied to all your workspaces. This can be accomplished after logging into the Red Hat OpenShift Dev Spaces dashboard. Click on the top right drop down next to your username and icon and select, <strong>User Preferences</strong>. In the User Preferences page, select <strong>Personal Access Tokens</strong> and add a git Personal Access Token (PAT) associated with the desired Git provider.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see the <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.23/html/user_guide/getting-started-with-devspaces#authenticating-to-a-git-server-from-a-workspace">Authenticating to a Git server from a Workspace</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_accessing_a_terminal"><a class="anchor" href="#_accessing_a_terminal"></a>Accessing a Terminal</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The majority of the exercises in this lab will be performed using the Visual Studio Code terminal.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open a new terminal by selecting the VS Code menu starting with the hamburger (3 horizontal lines) in the top left, then selecting <strong>Terminal</strong> &#8594; <strong>New Terminal</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/intro7.png" alt="VS Code terminal interface showing basic command line operations in the Dev Spaces environment">
+</div>
+</div>
+</li>
+<li>
+<p>Explore the environment:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ whoami
+
+user</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cat /etc/redhat-release`
+
+Red Hat Enterprise Linux release 9.7 (Plow)</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ ansible --version
+
+ansible [core 2.19.3]
+  config file = None
+  configured module search path = ['/home/user/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.11/site-packages/ansible
+  ansible collection location = /home/user/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/local/bin/ansible
+  python version = 3.11.13 (main, Aug 21 2025, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-11)] (/usr/bin/python3.11)
+  jinja version = 3.1.6
+  pyyaml version = 6.0.3 (with libyaml v0.2.5)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now you can start the practice from the next section.</p>
+</div>
+</div>
+</div>
 <nav class="pagination">
   <span class="prev"><a href="../LABENV/index.html">Lab Environment</a></span>
   <span class="next"><a href="section1.html">Git</a></span>
