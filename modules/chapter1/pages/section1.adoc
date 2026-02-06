@@ -11,7 +11,13 @@ While not required, sourcing these two files will greatly improve your CLI inter
 [source,bash,role=execute,subs="verbatim,attributes"]
 ----
 source /usr/share/bash-completion/completions/git
+----
+[source,bash,role=execute,subs="verbatim,attributes"]
+----
 source /usr/share/git-core/contrib/completion/git-prompt.sh
+----
+[source,bash,role=execute,subs="verbatim,attributes"]
+----
 PS1='[\u \W$(__git_ps1 " (%s)")]\$ '
 ----
 
@@ -24,6 +30,9 @@ Before working with Git in your Ansible Workspace, you will need to set your glo
 [source,bash,role=execute,subs="verbatim,attributes"]
 ----
 $ git config --global user.name "First Last"
+----
+[source,bash,role=execute,subs="verbatim,attributes"]
+----
 $git config --global user.email "email@example.com"
 ----
 
@@ -66,7 +75,7 @@ Deleted branch test (was 1234567).
 
 See how easy it was to create and delete branches in `git`!
 
-=== 1.4:Pull/Merge Requests
+=== 1.4: Pull/Merge Requests
 
 Pull/Merge (PR/MR) requests are used when contributing code in a shared git server with collaboration capabilities (GitHub, GitLab, Gitea etc) and you want to merge a branch into another branch. Typically, this is a feature branch with your work that you want to merge into the `main` branch. However, it could be any other branch target. PR/MR's are an essential way to review code and allow others to comment and provide feedback or changes. PR/MRs can also be used to kick off pipelines to run further automation activities based on this branch of code.
 
@@ -92,11 +101,15 @@ It is absolutely vital that you never EVER commit any secrets to git. Even if yo
 
 First, create a fake API-like key. The default regex and patterns will determine a UUID-like value to be similar to an API key:
 
+[source,bash,role=execute]
+----
+cd /projects/devspaces-example/
+echo key=$(uuidgen) > secret
+cat secret
+----
+
 [source,bash]
 ----
-$ cd /projects/devspaces-example/
-$ echo key=$(uuidgen) > secret
-$ cat secret
 key=3863b2c6-cc7b-4832-92b6-5b82d6b1a987
 ----
 
@@ -104,9 +117,12 @@ Gitleaks is available as a container image, so no installation is necessary.
 
 Pull the image into your Dev Spaces workspace:
 
-[source,bash]
+[source,bash,role=execute]
 ----
 $ podman pull docker.io/zricethezav/gitleaks:latest
+----
+[source,bash]
+----
 Trying to pull docker.io/zricethezav/gitleaks:latest...
 Getting image source signatures
 Copying blob 91da3791a8e8 done   | 
@@ -440,7 +456,7 @@ You can close the previous project window and return to the original Workspace. 
 +
 image::ansible-creator7.png[]
 +
-. Explore the scaffolded files to see their content
+. Explore the scaffolded files to see their content.
 .. `.gitignore`: pre-loaded with settings to ignore files in our git repository and make and avoid including unnecessary or undesired files.
 .. `test-requirements.txt`: Already includes the Ansible Python dependencies required for running tests.
 .. `.github/workflows`: Sample workflow for your collection to run CI capabilities on link:https://github.com/features/actions[GitHub Actions,window=_blank]
