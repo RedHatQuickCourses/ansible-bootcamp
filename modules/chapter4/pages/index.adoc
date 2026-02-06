@@ -1,6 +1,5 @@
 = Ansible Automation Platform on Azure
 
-[abstract]
 As a group, we will deploy Red Hat Ansible Automation Platform as a managed application on the Microsoft Azure platform. We will provision the platform directly from the Azure Marketplace, configure network access, and validate that we can log into Automation Controller.
 
 Running and managing your own instance of Ansible Automation Platform (AAP) can be complex and time-consuming. To simplify this process, Red Hat offers AAP as a managed application on Microsoft Azure. This allows organizations to leverage the power of Ansible automation without the overhead of managing the underlying infrastructure.
