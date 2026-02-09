@@ -2,7 +2,7 @@
 
 A link:https://www.redhat.com/en/technologies/management/ansible/automation-hub[Private Automation Hub (PAH),window=_blank] acts as a central repository containing curated and trusted automation content. It allows you to manage, share, and control access to a curated set of Execution Environments and Ansible Content Collections.
 
-=== 1.1: Importance of Private Automation Hub?
+=== 1: Importance of Private Automation Hub?
 
 Private Automation Hub provides several key benefits for enterprise automation:
 
@@ -23,7 +23,8 @@ Instead of creating an _ansible.cfg_ configuration file with your secret token t
 
 Utilize the following steps to obtain your PAH API token:
 
-. Launch the link:{aap_controller_web_url}[Private Automation Hub,window=_blank] web interface and login using the credentials from the xref:environment-details.adoc[Environment Details,window=_blank] page.
+. Launch the Private Automation Hub web interface and login using the credentials from the RHDP login page.
+
 . From the navigation menu on the left, expand **Automation Content** and click on **API Token**.
 +
 image::api-token-overview.png[API Token Overview]
@@ -55,23 +56,28 @@ Next, set the environment variables for Ansible to communicate with PAH.
 
 [source,bash,role=execute,subs="verbatim,attributes"]
 ----
+export AAP_URL='<Provide_aap_controller_web_url_from_rhdp_login_page>'
+----
+
+[source,bash,role=execute,subs="verbatim,attributes"]
+----
 # Set the list of servers Ansible should know about
 export ANSIBLE_GALAXY_SERVER_LIST='published,certified,validated,community'
 
 # Configure the 'published' repository
-export ANSIBLE_GALAXY_SERVER_PUBLISHED_URL='<aap_controller_web_url>/pulp_ansible/galaxy/published/'
+export ANSIBLE_GALAXY_SERVER_PUBLISHED_URL=$AAP_URL/pulp_ansible/galaxy/published/
 export ANSIBLE_GALAXY_SERVER_PUBLISHED_TOKEN=$PAH_API_TOKEN
 
 # Configure the 'certified' repository
-export ANSIBLE_GALAXY_SERVER_CERTIFIED_URL='<aap_controller_web_url>/pulp_ansible/galaxy/rh-certified/'
+export ANSIBLE_GALAXY_SERVER_CERTIFIED_URL=$AAP_URL/pulp_ansible/galaxy/rh-certified/
 export ANSIBLE_GALAXY_SERVER_CERTIFIED_TOKEN=$PAH_API_TOKEN
 
 # Configure the 'validated' repository
-export ANSIBLE_GALAXY_SERVER_VALIDATED_URL='<aap_controller_web_url>/pulp_ansible/galaxy/validated/'
+export ANSIBLE_GALAXY_SERVER_VALIDATED_URL=$AAP_URL/pulp_ansible/galaxy/validated/
 export ANSIBLE_GALAXY_SERVER_VALIDATED_TOKEN=$PAH_API_TOKEN
 
 # Configure the 'community' repository
-export ANSIBLE_GALAXY_SERVER_COMMUNITY_URL='<aap_controller_web_url>/pulp_ansible/galaxy/community/'
+export ANSIBLE_GALAXY_SERVER_COMMUNITY_URL=$AAP_URL/pulp_ansible/galaxy/community/
 export ANSIBLE_GALAXY_SERVER_COMMUNITY_TOKEN=$PAH_API_TOKEN
 ----
 
@@ -106,7 +112,7 @@ Publishing a Collection makes it available in PAH for use in Automation Controll
 
 Create a new _Namespace_ in PAH.
 
-. Launch the link:{aap_controller_web_url}[Private Automation Hub,window=_blank] web interface and login using the credentials from the xref:environment-details.adoc[Environment Details,window=_blank] page.
+. Launch the Private Automation Hub web interface and login using the credentials from the RHDP login page.
 . From the navigation menu on the left, expand **Automation Content** and click on **Namespaces**.
 +
 image::navigate-namespaces.png[Namespaces navigation]
@@ -128,16 +134,19 @@ Now that a namespace exists, we can build and publish our collection to PAH.
 ----
 # Build your custom collection
 ansible-galaxy collection build
-
+----
+[source,bash,role=execute,subs="verbatim,attributes"]
+----
 # Publish the collection to PAH
-ansible-galaxy collection publish -s {aap_controller_web_url}/api/galaxy/ ansible_bootcamp-my_collection-1.0.0.tar.gz --token $PAH_API_TOKEN
+ansible-galaxy collection publish -s $AAP_URL/api/galaxy/ ansible_bootcamp-my_collection-1.0.0.tar.gz --token $PAH_API_TOKEN
 ----
 
 NOTE: You can safely ignore any warnings that may be emitted during the publishing process.
 
 Once your collection has been published, it must be approved before it is available for use.
 
-. Launch the link:{aap_controller_web_url}[Private Automation Hub,window=_blank] web interface and login using the credentials from the xref:environment-details.adoc[Environment Details,window=_blank] page.
+. Launch the Private Automation Hub web interface and login using the credentials from the RHDP login information.
+
 . From the navigation menu on the left, expand **Automation Content** and click on **Collection Approvals**.
 +
 image::collection-approvals-overview.png[Collection Approvals overview]
@@ -162,7 +171,7 @@ image::pah-collections.png[PAH Collections]
 
 Before producing our own Execution Environment (EE) in subsequent steps, we'll configure PAH to pull in a certified base image from Red Hat. Since AAP images within the Red Hat Container Registry are private, we need to configure a credential within PATH to allow for the retrieval of images.
 
-. Launch the link:{aap_controller_web_url}[Private Automation Hub,window=_blank] web interface and login using the credentials from the xref:environment-details.adoc[Environment Details,window=_blank] page.
+. Launch the Private Automation Hub web interface and login using the credentials from the RHDP login page.
 . From the navigation menu on the left, expand **Automation Content** and click on **Remote Registries**.
 +
 image::remote-registries-overview.png[Navigate to Remote Registries]
@@ -222,11 +231,11 @@ After we've published our collection to Private Automation Hub, the next step is
 
 Create a new repository in your Gitea instance to hold the collection code using the following steps:
 
-. Navigate to your link:{gitea_console_url}[Gitea instance,window=_blank] and click the **Sign In** button on the upper right hand corner
+. Navigate to your Gitea instance and click the **Sign In** button on the upper right hand corner
 + 
 image::gitea-homepage.png[Gitea Homepages]
 +
-. Enter the username and password using the credentials provided from the xref:environment-details.adoc[Environment Details,window=_blank] page and click the **Sign In** button
+. Enter the username and password using the credentials provided from the from the RHDP login page and click the **Sign In** button
 + 
 image::gitea-login.png[Gitea Login Page]
 +
@@ -334,13 +343,13 @@ additional_build_steps:
   prepend_galaxy:
     - ARG TOKEN
     - ENV ANSIBLE_GALAXY_SERVER_LIST='published,certified,validated,community'
-    - ENV ANSIBLE_GALAXY_SERVER_CERTIFIED_URL='{aap_controller_web_url}/pulp_ansible/galaxy/rh-certified/'
+    - ENV ANSIBLE_GALAXY_SERVER_CERTIFIED_URL='$AAP_URL/pulp_ansible/galaxy/rh-certified/'
     - ENV ANSIBLE_GALAXY_SERVER_CERTIFIED_TOKEN=$TOKEN
-    - ENV ANSIBLE_GALAXY_SERVER_VALIDATED_URL='{aap_controller_web_url}/pulp_ansible/galaxy/validated/'
+    - ENV ANSIBLE_GALAXY_SERVER_VALIDATED_URL='$AAP_URL/pulp_ansible/galaxy/validated/'
     - ENV ANSIBLE_GALAXY_SERVER_VALIDATED_TOKEN=$TOKEN
-    - ENV ANSIBLE_GALAXY_SERVER_COMMUNITY_URL='{aap_controller_web_url}/pulp_ansible/galaxy/community/'
+    - ENV ANSIBLE_GALAXY_SERVER_COMMUNITY_URL='$AAP_URL/pulp_ansible/galaxy/community/'
     - ENV ANSIBLE_GALAXY_SERVER_COMMUNITY_TOKEN=$TOKEN
-    - ENV ANSIBLE_GALAXY_SERVER_PUBLISHED_URL='{aap_controller_web_url}/pulp_ansible/galaxy/published/'
+    - ENV ANSIBLE_GALAXY_SERVER_PUBLISHED_URL='$AAP_URL/pulp_ansible/galaxy/published/'
     - ENV ANSIBLE_GALAXY_SERVER_PUBLISHED_TOKEN=$TOKEN
 ----
 
@@ -431,13 +440,13 @@ additional_build_steps:
   prepend_galaxy:
     - ARG TOKEN
     - ENV ANSIBLE_GALAXY_SERVER_LIST='published,certified,validated,community'
-    - ENV ANSIBLE_GALAXY_SERVER_CERTIFIED_URL='{aap_controller_web_url}/pulp_ansible/galaxy/rh-certified/'
+    - ENV ANSIBLE_GALAXY_SERVER_CERTIFIED_URL=$AAP_URL/pulp_ansible/galaxy/rh-certified/
     - ENV ANSIBLE_GALAXY_SERVER_CERTIFIED_TOKEN=$TOKEN
-    - ENV ANSIBLE_GALAXY_SERVER_VALIDATED_URL='{aap_controller_web_url}/pulp_ansible/galaxy/validated/'
+    - ENV ANSIBLE_GALAXY_SERVER_VALIDATED_URL=$AAP_URL/pulp_ansible/galaxy/validated/
     - ENV ANSIBLE_GALAXY_SERVER_VALIDATED_TOKEN=$TOKEN
-    - ENV ANSIBLE_GALAXY_SERVER_COMMUNITY_URL='{aap_controller_web_url}/pulp_ansible/galaxy/community/'
+    - ENV ANSIBLE_GALAXY_SERVER_COMMUNITY_URL=$AAP_URL/pulp_ansible/galaxy/community/
     - ENV ANSIBLE_GALAXY_SERVER_COMMUNITY_TOKEN=$TOKEN
-    - ENV ANSIBLE_GALAXY_SERVER_PUBLISHED_URL='{aap_controller_web_url}/pulp_ansible/galaxy/published/'
+    - ENV ANSIBLE_GALAXY_SERVER_PUBLISHED_URL=$AAP_URL/pulp_ansible/galaxy/published/
     - ENV ANSIBLE_GALAXY_SERVER_PUBLISHED_TOKEN=$TOKEN
 ----
 
@@ -453,7 +462,7 @@ Then, run the following commands:
 ----
 # Rebuild and republish the collection
 ansible-galaxy collection build
-ansible-galaxy collection publish -s {aap_controller_web_url}/api/galaxy/ ansible_bootcamp-my_collection-1.0.1.tar.gz --token $PAH_API_TOKEN
+ansible-galaxy collection publish -s $AAP_URL/api/galaxy/ ansible_bootcamp-my_collection-1.0.1.tar.gz --token $PAH_API_TOKEN
 ----
 
 NOTE: Make sure to Approve collection in the PAH web interface as described previously.
@@ -511,7 +520,8 @@ Now, let's configure Automation Controller to use our custom content.
 
 First, create a new credential in Automation Controller to allow it to pull the custom Execution Environment from Private Automation Hub.
 
-. Launch the link:{aap_controller_web_url}[Automation Controller,window=_blank] web interface and login using the credentials from the xref:environment-details.adoc[Environment Details,window=_blank] page.
+. Launch the Automation Controller web interface and login using the credentials from the RHDP login page.
+
 . From the navigation menu on the left, expand **Automation Execution** and expand **Infrastructure** and click on **Credentials**.
 +
 image::automation-controller-credentials-overview.png[Navigate to Credentials]
@@ -524,8 +534,8 @@ image::automation-controller-create-credential.png[Create Credentials]
 .. Name: `Hub`
 .. Credential type: `Container Registry`
 .. Authentication URL: `aap-aap.{openshift_cluster_ingress_domain}`
-.. Username: `{aap_controller_admin_user}`
-.. Password: `{aap_controller_admin_password}`
+.. Username: `aap_controller_admin_user`
+.. Password: `aap_controller_admin_password`
 .. Verify SSL: Checked
 . Click **Create credential** to save the new credential.
 
@@ -536,15 +546,15 @@ image::automation-controller-create-credential-dialog.png[Create Credentials Dia
 Next, create a new credential to retrieve the source code from the Gitea repository.
 
 
-. From the Credentials page in Automation Controller, click **Create credential** once again to add a new credential.
+. From the RHDP login page in Automation Controller, click **Create credential** once again to add a new credential.
 +
 image::automation-controller-create-credential-2.png[Create Credentials]
 +
 . Enter the following details on the _Create Credential_ page:
 .. Name: `Gitea`
 .. Credential type: `Source Control`
-.. Username: `{gitea_user}`
-.. Password: `{gitea_password}`
+.. Username: `gitea_user`
+.. Password: `gitea_password`
 . Click **Create credential** to save the new credential.
 
 image::automation-controller-create-credential-git-dialog.png[Create Credentials Dialog]
@@ -581,11 +591,11 @@ image::automation-controller-projects-overview.png[Navigate to Projects]
 +
 image::automation-controller-create-project.png[Create Project]
 +
-. Enter the following details on the _Create Project_ page:
+. Enter the following details on the _Create Project_ page with the real values :
 .. Name: `Custom Content Test Project`
 .. Organization: `Default`
 .. Source Control Type: `Git`
-.. Source control URL: `{gitea_console_url}/{gitea_user}/ansible_bootcamp_my_collection.git`
+.. Source control URL: `gitea_console_url/gitea_user/ansible_bootcamp_my_collection.git`
 .. Source code credential: Select the `Gitea` credential created previously.
 . Click **Create project** to create the new Project.
 
