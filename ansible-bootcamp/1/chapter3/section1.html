@@ -173,7 +173,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_1_1_importance_of_private_automation_hub"><a class="anchor" href="#_1_1_importance_of_private_automation_hub"></a>1.1: Importance of Private Automation Hub?</h3>
+<h3 id="_1_importance_of_private_automation_hub"><a class="anchor" href="#_1_importance_of_private_automation_hub"></a>1: Importance of Private Automation Hub?</h3>
 <div class="paragraph">
 <p>Private Automation Hub provides several key benefits for enterprise automation:</p>
 </div>
@@ -213,7 +213,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Launch the <a href="{aap_controller_web_url}" target="_blank" rel="noopener">Private Automation Hub</a> web interface and login using the credentials from the <a href="#environment-details.adoc" class="xref unresolved" target="_blank" rel="noopener">Environment Details</a> page.</p>
+<p>Launch the Private Automation Hub web interface and login using the credentials from the RHDP login page.</p>
 </li>
 <li>
 <p>From the navigation menu on the left, expand <strong>Automation Content</strong> and click on <strong>API Token</strong>.</p>
@@ -284,23 +284,28 @@ Replace <code>YOUR_API_TOKEN_HERE</code> With the personal API token you just co
 </div>
 <div class="listingblock execute">
 <div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export AAP_URL='&lt;Provide_aap_controller_web_url_from_rhdp_login_page&gt;'</code></pre>
+</div>
+</div>
+<div class="listingblock execute">
+<div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Set the list of servers Ansible should know about
 export ANSIBLE_GALAXY_SERVER_LIST='published,certified,validated,community'
 
 # Configure the 'published' repository
-export ANSIBLE_GALAXY_SERVER_PUBLISHED_URL='&lt;aap_controller_web_url&gt;/pulp_ansible/galaxy/published/'
+export ANSIBLE_GALAXY_SERVER_PUBLISHED_URL=$AAP_URL/pulp_ansible/galaxy/published/
 export ANSIBLE_GALAXY_SERVER_PUBLISHED_TOKEN=$PAH_API_TOKEN
 
 # Configure the 'certified' repository
-export ANSIBLE_GALAXY_SERVER_CERTIFIED_URL='&lt;aap_controller_web_url&gt;/pulp_ansible/galaxy/rh-certified/'
+export ANSIBLE_GALAXY_SERVER_CERTIFIED_URL=$AAP_URL/pulp_ansible/galaxy/rh-certified/
 export ANSIBLE_GALAXY_SERVER_CERTIFIED_TOKEN=$PAH_API_TOKEN
 
 # Configure the 'validated' repository
-export ANSIBLE_GALAXY_SERVER_VALIDATED_URL='&lt;aap_controller_web_url&gt;/pulp_ansible/galaxy/validated/'
+export ANSIBLE_GALAXY_SERVER_VALIDATED_URL=$AAP_URL/pulp_ansible/galaxy/validated/
 export ANSIBLE_GALAXY_SERVER_VALIDATED_TOKEN=$PAH_API_TOKEN
 
 # Configure the 'community' repository
-export ANSIBLE_GALAXY_SERVER_COMMUNITY_URL='&lt;aap_controller_web_url&gt;/pulp_ansible/galaxy/community/'
+export ANSIBLE_GALAXY_SERVER_COMMUNITY_URL=$AAP_URL/pulp_ansible/galaxy/community/
 export ANSIBLE_GALAXY_SERVER_COMMUNITY_TOKEN=$PAH_API_TOKEN</code></pre>
 </div>
 </div>
@@ -348,7 +353,7 @@ ansible-creator init ansible_bootcamp.my_collection --init-path ./</code></pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Launch the <a href="{aap_controller_web_url}" target="_blank" rel="noopener">Private Automation Hub</a> web interface and login using the credentials from the <a href="#environment-details.adoc" class="xref unresolved" target="_blank" rel="noopener">Environment Details</a> page.</p>
+<p>Launch the Private Automation Hub web interface and login using the credentials from the RHDP login page.</p>
 </li>
 <li>
 <p>From the navigation menu on the left, expand <strong>Automation Content</strong> and click on <strong>Namespaces</strong>.</p>
@@ -389,10 +394,13 @@ ansible-creator init ansible_bootcamp.my_collection --init-path ./</code></pre>
 <div class="listingblock execute">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Build your custom collection
-ansible-galaxy collection build
-
-# Publish the collection to PAH
-ansible-galaxy collection publish -s {aap_controller_web_url}/api/galaxy/ ansible_bootcamp-my_collection-1.0.0.tar.gz --token $PAH_API_TOKEN</code></pre>
+ansible-galaxy collection build</code></pre>
+</div>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Publish the collection to PAH
+ansible-galaxy collection publish -s $AAP_URL/api/galaxy/ ansible_bootcamp-my_collection-1.0.0.tar.gz --token $PAH_API_TOKEN</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -413,7 +421,7 @@ You can safely ignore any warnings that may be emitted during the publishing pro
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Launch the <a href="{aap_controller_web_url}" target="_blank" rel="noopener">Private Automation Hub</a> web interface and login using the credentials from the <a href="#environment-details.adoc" class="xref unresolved" target="_blank" rel="noopener">Environment Details</a> page.</p>
+<p>Launch the Private Automation Hub web interface and login using the credentials from the RHDP login information.</p>
 </li>
 <li>
 <p>From the navigation menu on the left, expand <strong>Automation Content</strong> and click on <strong>Collection Approvals</strong>.</p>
@@ -469,7 +477,7 @@ You can safely ignore any warnings that may be emitted during the publishing pro
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Launch the <a href="{aap_controller_web_url}" target="_blank" rel="noopener">Private Automation Hub</a> web interface and login using the credentials from the <a href="#environment-details.adoc" class="xref unresolved" target="_blank" rel="noopener">Environment Details</a> page.</p>
+<p>Launch the Private Automation Hub web interface and login using the credentials from the RHDP login page.</p>
 </li>
 <li>
 <p>From the navigation menu on the left, expand <strong>Automation Content</strong> and click on <strong>Remote Registries</strong>.</p>
@@ -623,7 +631,7 @@ You can <a href="https://access.redhat.com/terms-based-registry" target="_blank"
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Navigate to your <a href="{gitea_console_url}" target="_blank" rel="noopener">Gitea instance</a> and click the <strong>Sign In</strong> button on the upper right hand corner</p>
+<p>Navigate to your Gitea instance and click the <strong>Sign In</strong> button on the upper right hand corner</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/gitea-homepage.png" alt="Gitea Homepages">
@@ -631,7 +639,7 @@ You can <a href="https://access.redhat.com/terms-based-registry" target="_blank"
 </div>
 </li>
 <li>
-<p>Enter the username and password using the credentials provided from the <a href="#environment-details.adoc" class="xref unresolved" target="_blank" rel="noopener">Environment Details</a> page and click the <strong>Sign In</strong> button</p>
+<p>Enter the username and password using the credentials provided from the from the RHDP login page and click the <strong>Sign In</strong> button</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/gitea-login.png" alt="Gitea Login Page">
@@ -785,13 +793,13 @@ additional_build_steps:
   prepend_galaxy:
     - ARG TOKEN
     - ENV ANSIBLE_GALAXY_SERVER_LIST='published,certified,validated,community'
-    - ENV ANSIBLE_GALAXY_SERVER_CERTIFIED_URL='{aap_controller_web_url}/pulp_ansible/galaxy/rh-certified/'
+    - ENV ANSIBLE_GALAXY_SERVER_CERTIFIED_URL='$AAP_URL/pulp_ansible/galaxy/rh-certified/'
     - ENV ANSIBLE_GALAXY_SERVER_CERTIFIED_TOKEN=$TOKEN
-    - ENV ANSIBLE_GALAXY_SERVER_VALIDATED_URL='{aap_controller_web_url}/pulp_ansible/galaxy/validated/'
+    - ENV ANSIBLE_GALAXY_SERVER_VALIDATED_URL='$AAP_URL/pulp_ansible/galaxy/validated/'
     - ENV ANSIBLE_GALAXY_SERVER_VALIDATED_TOKEN=$TOKEN
-    - ENV ANSIBLE_GALAXY_SERVER_COMMUNITY_URL='{aap_controller_web_url}/pulp_ansible/galaxy/community/'
+    - ENV ANSIBLE_GALAXY_SERVER_COMMUNITY_URL='$AAP_URL/pulp_ansible/galaxy/community/'
     - ENV ANSIBLE_GALAXY_SERVER_COMMUNITY_TOKEN=$TOKEN
-    - ENV ANSIBLE_GALAXY_SERVER_PUBLISHED_URL='{aap_controller_web_url}/pulp_ansible/galaxy/published/'
+    - ENV ANSIBLE_GALAXY_SERVER_PUBLISHED_URL='$AAP_URL/pulp_ansible/galaxy/published/'
     - ENV ANSIBLE_GALAXY_SERVER_PUBLISHED_TOKEN=$TOKEN</code></pre>
 </div>
 </div>
@@ -904,13 +912,13 @@ additional_build_steps:
   prepend_galaxy:
     - ARG TOKEN
     - ENV ANSIBLE_GALAXY_SERVER_LIST='published,certified,validated,community'
-    - ENV ANSIBLE_GALAXY_SERVER_CERTIFIED_URL='{aap_controller_web_url}/pulp_ansible/galaxy/rh-certified/'
+    - ENV ANSIBLE_GALAXY_SERVER_CERTIFIED_URL=$AAP_URL/pulp_ansible/galaxy/rh-certified/
     - ENV ANSIBLE_GALAXY_SERVER_CERTIFIED_TOKEN=$TOKEN
-    - ENV ANSIBLE_GALAXY_SERVER_VALIDATED_URL='{aap_controller_web_url}/pulp_ansible/galaxy/validated/'
+    - ENV ANSIBLE_GALAXY_SERVER_VALIDATED_URL=$AAP_URL/pulp_ansible/galaxy/validated/
     - ENV ANSIBLE_GALAXY_SERVER_VALIDATED_TOKEN=$TOKEN
-    - ENV ANSIBLE_GALAXY_SERVER_COMMUNITY_URL='{aap_controller_web_url}/pulp_ansible/galaxy/community/'
+    - ENV ANSIBLE_GALAXY_SERVER_COMMUNITY_URL=$AAP_URL/pulp_ansible/galaxy/community/
     - ENV ANSIBLE_GALAXY_SERVER_COMMUNITY_TOKEN=$TOKEN
-    - ENV ANSIBLE_GALAXY_SERVER_PUBLISHED_URL='{aap_controller_web_url}/pulp_ansible/galaxy/published/'
+    - ENV ANSIBLE_GALAXY_SERVER_PUBLISHED_URL=$AAP_URL/pulp_ansible/galaxy/published/
     - ENV ANSIBLE_GALAXY_SERVER_PUBLISHED_TOKEN=$TOKEN</code></pre>
 </div>
 </div>
@@ -930,7 +938,7 @@ additional_build_steps:
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Rebuild and republish the collection
 ansible-galaxy collection build
-ansible-galaxy collection publish -s {aap_controller_web_url}/api/galaxy/ ansible_bootcamp-my_collection-1.0.1.tar.gz --token $PAH_API_TOKEN</code></pre>
+ansible-galaxy collection publish -s $AAP_URL/api/galaxy/ ansible_bootcamp-my_collection-1.0.1.tar.gz --token $PAH_API_TOKEN</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1016,7 +1024,7 @@ git push origin main</code></pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Launch the <a href="{aap_controller_web_url}" target="_blank" rel="noopener">Automation Controller</a> web interface and login using the credentials from the <a href="#environment-details.adoc" class="xref unresolved" target="_blank" rel="noopener">Environment Details</a> page.</p>
+<p>Launch the Automation Controller web interface and login using the credentials from the RHDP login page.</p>
 </li>
 <li>
 <p>From the navigation menu on the left, expand <strong>Automation Execution</strong> and expand <strong>Infrastructure</strong> and click on <strong>Credentials</strong>.</p>
@@ -1048,10 +1056,10 @@ git push origin main</code></pre>
 <p>Authentication URL: <code>aap-aap.{openshift_cluster_ingress_domain}</code></p>
 </li>
 <li>
-<p>Username: <code>{aap_controller_admin_user}</code></p>
+<p>Username: <code>aap_controller_admin_user</code></p>
 </li>
 <li>
-<p>Password: <code>{aap_controller_admin_password}</code></p>
+<p>Password: <code>aap_controller_admin_password</code></p>
 </li>
 <li>
 <p>Verify SSL: Checked</p>
@@ -1078,7 +1086,7 @@ git push origin main</code></pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>From the Credentials page in Automation Controller, click <strong>Create credential</strong> once again to add a new credential.</p>
+<p>From the RHDP login page in Automation Controller, click <strong>Create credential</strong> once again to add a new credential.</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/automation-controller-create-credential-2.png" alt="Create Credentials">
@@ -1096,10 +1104,10 @@ git push origin main</code></pre>
 <p>Credential type: <code>Source Control</code></p>
 </li>
 <li>
-<p>Username: <code>{gitea_user}</code></p>
+<p>Username: <code>gitea_user</code></p>
 </li>
 <li>
-<p>Password: <code>{gitea_password}</code></p>
+<p>Password: <code>gitea_password</code></p>
 </li>
 </ol>
 </div>
@@ -1189,7 +1197,7 @@ git push origin main</code></pre>
 </div>
 </li>
 <li>
-<p>Enter the following details on the <em>Create Project</em> page:</p>
+<p>Enter the following details on the <em>Create Project</em> page with the real values :</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1202,7 +1210,7 @@ git push origin main</code></pre>
 <p>Source Control Type: <code>Git</code></p>
 </li>
 <li>
-<p>Source control URL: <code>{gitea_console_url}/{gitea_user}/ansible_bootcamp_my_collection.git</code></p>
+<p>Source control URL: <code>gitea_console_url/gitea_user/ansible_bootcamp_my_collection.git</code></p>
 </li>
 <li>
 <p>Source code credential: Select the <code>Gitea</code> credential created previously.</p>
