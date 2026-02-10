@@ -21,6 +21,8 @@ On completing this course, you should be able to:
 
 - Master the Developer Lifecycle: Execute a full content workflow—from local development to production—incorporating Execution Environments (EE), version control integration, and the principles of reusable, modular automation content.
 
+- Understand CI/CD concepts and their application to Ansible automation.
+
 == Prerequisites
 
 This course assumes that you have the following prior experience:
