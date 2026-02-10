@@ -43,21 +43,21 @@ NOTE: Make sure to store the token securely, as it will not be displayed again.
 
 In your Dev Spaces terminal, run the following commands. These variables will configure `ansible-galaxy` and `ansible-builder` to use your PAH instance to pull and push collections and execution environments.
 
-First, set a new variable for your PAH API Token created previously
+First, set a new variable for your PAH API Token and AAP URL: 
 
 [source,bash,role=execute,subs="verbatim,attributes"]
 ----
 export PAH_API_TOKEN='YOUR_API_TOKEN_HERE'
 ----
 
-NOTE: Replace `YOUR_API_TOKEN_HERE` With the personal API token you just copied from PAH.
-
-Next, set the environment variables for Ansible to communicate with PAH.
-
 [source,bash,role=execute,subs="verbatim,attributes"]
 ----
 export AAP_URL='<Provide_aap_controller_web_url_from_rhdp_login_page>'
 ----
+
+NOTE: Replace `YOUR_API_TOKEN_HERE` With the personal API token you just copied from PAH and <Provide_aap_controller_web_url_from_rhdp_login_page> from the RHDP login page.
+
+Next, set the environment variables for Ansible to communicate with PAH.
 
 [source,bash,role=execute,subs="verbatim,attributes"]
 ----

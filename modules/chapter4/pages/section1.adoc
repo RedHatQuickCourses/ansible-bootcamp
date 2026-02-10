@@ -629,13 +629,19 @@ In your terminal, run the following commands. These variables will configure `an
 
 NOTE: If you have these environment variables set from the previous lab you do not need to set them again.
 
-. First, set your Private Automation Hub API token as an environment variable
+. First, set your Private Automation Hub API token and AAP URL as an environment variable
 +
 [source,bash,role=execute,subs="verbatim,attributes"]
 ----
 # Set your Private Automation Hub API token
 export PAH_API_TOKEN='YOUR_API_TOKEN_HERE'
 ----
+
+[source,bash,role=execute,subs="verbatim,attributes"]
+----
+export AAP_URL='<Provide_aap_controller_web_url_from_rhdp_login_page>'
+----
+
 +
 . Now, set the remaining environment variables
 +
