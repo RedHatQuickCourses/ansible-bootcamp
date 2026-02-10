@@ -1,19 +1,14 @@
-= Ansible Automation Platform on Azure
+= Lab: Creating a CI/CD Pipeline
 
-As a group, we will deploy Red Hat Ansible Automation Platform as a managed application on the Microsoft Azure platform. We will provision the platform directly from the Azure Marketplace, configure network access, and validate that we can log into Automation Controller.
-
-Running and managing your own instance of Ansible Automation Platform (AAP) can be complex and time-consuming. To simplify this process, Red Hat offers AAP as a managed application on Microsoft Azure. This allows organizations to leverage the power of Ansible automation without the overhead of managing the underlying infrastructure.
-
-Due to subscription limitations, instead of each student deploying their own instance of Ansible Automation Platform on Azure, together we will collectively perform a single deployment as a class. This approach allows us to focus on understanding the deployment process and key concepts without the need for individual subscriptions. The steps included within this lab can be followed later by each student when they have access to their own or a customers' Azure subscription
+We will create a complete CI/CD pipeline for Ansible collection development using Tekton on OpenShift. This includes building a pipeline that automatically lints, tests, builds, publishes, and approves Ansible collections to Private Automation Hub, with webhook integration for automated triggering on git commits.
 
 == Learning Objectives
 
 After completing this module, you will be able to:
 
-* Understand the benefits of managed AAP deployment on Azure
-* Deploy AAP from the Azure Marketplace
-* Configure networking and security settings within the Azure Portal
-* Access and validate AAP functionality
-
-Note: 
- Due to Azure subscription restrictions, please use your own Azure account information to perform the Ansible Automation Platform deployment in the Azure lab, following the instructions provided ahead. 
+- Understand CI/CD concepts and their application to Ansible automation
+- Create and configure Tekton pipelines in OpenShift
+- Set up automated testing and linting for Ansible collections
+- Implement automated publishing workflows to Private Automation Hub
+- Configure webhook integrations for git-triggered deployments
+- Monitor and troubleshoot CI/CD pipeline execution
