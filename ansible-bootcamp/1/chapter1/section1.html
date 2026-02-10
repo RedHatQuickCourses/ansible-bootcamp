@@ -215,12 +215,12 @@ This lab covers the extreme basics of <code>git</code>. For many of you, this ma
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ git config --global user.name "First Last"</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git config --global user.name "First Last"</code></pre>
 </div>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$git config --global user.email "email@example.com"</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git config --global user.email "email@example.com"</code></pre>
 </div>
 </div>
 </div>
@@ -338,7 +338,7 @@ cat secret</code></pre>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ podman pull docker.io/zricethezav/gitleaks:latest</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman pull docker.io/zricethezav/gitleaks:latest</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -359,7 +359,7 @@ Writing manifest to image destination
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ podman run -v /projects/devspaces-example/:/scan:Z zricethezav/gitleaks:latest dir -v /scan/
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman run -v /projects/devspaces-example/:/scan:Z zricethezav/gitleaks:latest dir -v /scan/
 
     ○
     │╲
@@ -398,7 +398,7 @@ Fingerprint: /scan/secret:generic-api-key:1
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ pip install --user pre-commit</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">pip install --user pre-commit</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -452,18 +452,21 @@ Successfully installed cfgv-3.4.0 identify-2.6.15 nodeenv-1.9.1 pre-commit-4.3.0
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ /home/user/.local/bin/pre-commit install
-
- pre-commit installed at .git/hooks/pre-commit</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">/home/user/.local/bin/pre-commit install</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"> pre-commit installed at .git/hooks/pre-commit</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Attempt a <code>git commit</code> which should fail:</p>
 </div>
-<div class="listingblock">
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ git add secret
-$ git commit
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git add secret
+git commit
 
 gitleaks.................................................................Failed
 - hook id: gitleaks
@@ -490,9 +493,9 @@ Fingerprint: /gitleaks/secret:generic-api-key:1
 <div class="paragraph">
 <p>Run <code>git status</code> and confirm the file is still staged for commit:</p>
 </div>
-<div class="listingblock">
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">bash-5.1$ git status
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git status
 On branch main
 Your branch is up to date with 'origin/main'.
 

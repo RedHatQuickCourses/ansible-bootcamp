@@ -222,7 +222,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Lab setup should have been previously completed in <a href="#04-managing-content-automation-hub.adoc" class="xref unresolved">Managing Ansible Content with Private Automation Hub</a>
+Lab setup should have been previously completed in Managing Ansible Content with Private Automation Hub
 </td>
 </tr>
 </table>
@@ -238,12 +238,12 @@ Lab setup should have been previously completed in <a href="#04-managing-content
 <div class="sect2">
 <h3 id="_3_1_create_cicd_pipeline_repository"><a class="anchor" href="#_3_1_create_cicd_pipeline_repository"></a>3.1: Create CI/CD Pipeline Repository</h3>
 <div class="paragraph">
-<p>Create another Gitea repository, separate from the <em>ansible_bootcamp_my_collection</em> repository that was created previously in <a href="#04-managing-content-automation-hub.adoc" class="xref unresolved">Managing Ansible Content with Private Automation Hub</a>, which will serve as a working CI/CD pipeline development repository.</p>
+<p>Create another Gitea repository, separate from the <em>ansible_bootcamp_my_collection</em> repository that was created previously in Managing Ansible Content with Private Automation Hub, which will serve as a working CI/CD pipeline development repository.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Navigate to your <a href="{gitea_console_url}" target="_blank" rel="noopener">Gitea instance</a> and click the <strong>Sign In</strong> button on the upper right hand corner. Enter the username and password using the credentials provided from the <a href="#environment-details.adoc" class="xref unresolved" target="_blank" rel="noopener">Environment Details</a> page and click the <strong>Sign In</strong> button</p>
+<p>Navigate to your Gitea instance and click the <strong>Sign In</strong> button on the upper right hand corner. Enter the username and password using the credentials provided from the Environment Details page and click the <strong>Sign In</strong> button</p>
 </li>
 <li>
 <p>In the top left of the web interface, click on the <strong>+</strong> symbol and select <strong>New Repository</strong>.</p>
@@ -274,7 +274,7 @@ Lab setup should have been previously completed in <a href="#04-managing-content
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Clone the <em>ansible_bootcamp_ci_cd_pipeline</em> repository you just created into your workspace</p>
+<p>Clone the <em>ansible_bootcamp_ci_cd_pipeline</em> repository you just created into your workspace use RHDP login page for the values for below command:</p>
 <div class="listingblock execute">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">  git clone {gitea_console_url}/{gitea_user}/ansible_bootcamp_ci_cd_pipeline.git</code></pre>

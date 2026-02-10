@@ -777,7 +777,7 @@ version: 3
 
 images:
   base_image:
-    name: aap-aap.{openshift_cluster_ingress_domain}/ansible-automation-platform-25/ee-minimal-rhel9:latest
+    name: &lt;AAP-hostname-from-rhdp-login-page&gt;/ansible-automation-platform-25/ee-minimal-rhel9:latest
 
 dependencies:
   ansible_core:
@@ -812,14 +812,14 @@ additional_build_steps:
 <div class="listingblock execute">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Log in to your PAH container registry with your AAP user credentials
-podman login aap-aap.{openshift_cluster_ingress_domain}
+podman login &lt;AAP-hostname-from-rhdp-login-page&gt;
 
 # Build the EE. It will pull the base from PAH, then add our content.
 ansible-builder build --tag my-pah-ee:1.0 --build-arg TOKEN=$PAH_API_TOKEN
 
 # Tag and push the image to your PAH registry
-podman tag localhost/my-pah-ee:1.0 aap-aap.{openshift_cluster_ingress_domain}/my-pah-ee:1.0
-podman push aap-aap.{openshift_cluster_ingress_domain}/my-pah-ee:1.0</code></pre>
+podman tag localhost/my-pah-ee:1.0 &lt;AAP-hostname-from-rhdp-login-page&gt;/my-pah-ee:1.0
+podman push &lt;AAP-hostname-from-rhdp-login-page&gt;/my-pah-ee:1.0</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -894,7 +894,7 @@ version: 3
 
 images:
   base_image:
-    name: aap-aap.{openshift_cluster_ingress_domain}/ansible-automation-platform-25/ee-minimal-rhel9:latest
+    name: &lt;AAP-hostname-from-rhdp-login-page&gt;/ansible-automation-platform-25/ee-minimal-rhel9:latest
 
 dependencies:
   ansible_core:
@@ -960,8 +960,8 @@ Make sure to Approve collection in the PAH web interface as described previously
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Rebuild and republish the EE with a new version tag
 ansible-builder build --tag my-pah-ee:1.1 --build-arg TOKEN=$PAH_API_TOKEN
-podman tag localhost/my-pah-ee:1.1 aap-aap.{openshift_cluster_ingress_domain}/my-pah-ee:1.1
-podman push aap-aap.{openshift_cluster_ingress_domain}/my-pah-ee:1.1</code></pre>
+podman tag localhost/my-pah-ee:1.1 &lt;AAP-hostname-from-rhdp-login-page&gt;/my-pah-ee:1.1
+podman push &lt;AAP-hostname-from-rhdp-login-page&gt;/my-pah-ee:1.1</code></pre>
 </div>
 </div>
 </div>
