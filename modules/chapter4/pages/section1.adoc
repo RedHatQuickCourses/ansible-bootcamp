@@ -21,7 +21,7 @@ Prior to starting the lab, ensure the following tools and services are set up:
 . You have access to your Dev Spaces workspace for your environment
 . Make sure the Gitea repository is *public*
 
-NOTE: Lab setup should have been previously completed in xref:04-managing-content-automation-hub.adoc[Managing Ansible Content with Private Automation Hub]
+NOTE: Lab setup should have been previously completed in Managing Ansible Content with Private Automation Hub
 
 == 3: Implementing the CI/CD Pipeline
 
@@ -29,9 +29,9 @@ In this section, we'll share how to apply the *collection-pipeline.yml* link:htt
 
 === 3.1: Create CI/CD Pipeline Repository
 
-Create another Gitea repository, separate from the _ansible_bootcamp_my_collection_ repository that was created previously in xref:04-managing-content-automation-hub.adoc[Managing Ansible Content with Private Automation Hub], which will serve as a working CI/CD pipeline development repository.
+Create another Gitea repository, separate from the _ansible_bootcamp_my_collection_ repository that was created previously in Managing Ansible Content with Private Automation Hub, which will serve as a working CI/CD pipeline development repository.
 
-. Navigate to your link:{gitea_console_url}[Gitea instance,window=_blank] and click the **Sign In** button on the upper right hand corner. Enter the username and password using the credentials provided from the xref:environment-details.adoc[Environment Details,window=_blank] page and click the **Sign In** button
+. Navigate to your Gitea instance and click the **Sign In** button on the upper right hand corner. Enter the username and password using the credentials provided from the Environment Details page and click the **Sign In** button
 . In the top left of the web interface, click on the **+** symbol and select **New Repository**.
 +
 image::gitea-repo-create.png[]
@@ -45,7 +45,7 @@ image::gitea-repo-config.png[]
 
 After an empty repository is created on your Gitea, we need to clone the repository into the workspace to begin creating lab files.
 
-. Clone the _ansible_bootcamp_ci_cd_pipeline_ repository you just created into your workspace
+. Clone the _ansible_bootcamp_ci_cd_pipeline_ repository you just created into your workspace use RHDP login page for the values for below command: 
 +
 [source,bash,role=execute,subs="verbatim,attributes"]
 ----
