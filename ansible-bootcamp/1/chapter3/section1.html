@@ -260,11 +260,16 @@ Make sure to store the token securely, as it will not be displayed again.
 <p>In your Dev Spaces terminal, run the following commands. These variables will configure <code>ansible-galaxy</code> and <code>ansible-builder</code> to use your PAH instance to pull and push collections and execution environments.</p>
 </div>
 <div class="paragraph">
-<p>First, set a new variable for your PAH API Token created previously</p>
+<p>First, set a new variable for your PAH API Token and AAP URL:</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export PAH_API_TOKEN='YOUR_API_TOKEN_HERE'</code></pre>
+</div>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export AAP_URL='&lt;Provide_aap_controller_web_url_from_rhdp_login_page&gt;'</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -274,18 +279,13 @@ Make sure to store the token securely, as it will not be displayed again.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Replace <code>YOUR_API_TOKEN_HERE</code> With the personal API token you just copied from PAH.
+Replace <code>YOUR_API_TOKEN_HERE</code> With the personal API token you just copied from PAH and &lt;Provide_aap_controller_web_url_from_rhdp_login_page&gt; from the RHDP login page.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
 <p>Next, set the environment variables for Ansible to communicate with PAH.</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export AAP_URL='&lt;Provide_aap_controller_web_url_from_rhdp_login_page&gt;'</code></pre>
-</div>
 </div>
 <div class="listingblock execute">
 <div class="content">
