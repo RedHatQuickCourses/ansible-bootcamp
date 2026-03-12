@@ -637,7 +637,7 @@ export PAH_API_TOKEN='YOUR_API_TOKEN_HERE'
 export AAP_URL='<Provide_aap_controller_web_url_from_rhdp_login_page>'
 ----
 
-+
+
 . Now, set the remaining environment variables
 +
 [source,bash,role=execute,subs="verbatim,attributes"]
@@ -661,14 +661,14 @@ export ANSIBLE_GALAXY_SERVER_VALIDATED_TOKEN=$PAH_API_TOKEN
 export ANSIBLE_GALAXY_SERVER_COMMUNITY_URL={aap_controller_web_url}/pulp_ansible/galaxy/community/
 export ANSIBLE_GALAXY_SERVER_COMMUNITY_TOKEN=$PAH_API_TOKEN
 ----
-+
+
 . Use `ansible-galaxy` to install the new version of your collection from Private Automation hub
 +
 [source,bash,role=execute,subs="verbatim,attributes"]
 ----
  ansible-galaxy collection install ansible_bootcamp.my_collection
 ----
-+
+
 . Create the following ansible playbook in a file named `test_dad_joke.yml` to test the new collection in the `playbooks` directory of the collection.
 +
 .playbooks/test_dad_joke.yml
@@ -683,7 +683,8 @@ export ANSIBLE_GALAXY_SERVER_COMMUNITY_TOKEN=$PAH_API_TOKEN
   roles:
     - ansible_bootcamp.my_collection.dad_joke
 ----   
-+
+
+
 . From the root of the collection, execute the playbook and if successful, it should return a Dad Joke
 +
 [source,bash,role=execute,subs="verbatim,attributes"]
