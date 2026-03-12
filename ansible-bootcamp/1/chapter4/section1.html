@@ -1107,13 +1107,10 @@ export PAH_API_TOKEN='YOUR_API_TOKEN_HERE'</code></pre>
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export AAP_URL='&lt;Provide_aap_controller_web_url_from_rhdp_login_page&gt;'</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>+
-. Now, set the remaining environment variables</p>
-</div>
-<div class="paragraph">
-<p>+</p>
-</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Now, set the remaining environment variables</p>
 <div class="listingblock execute">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Set the list of servers Ansible should know about
@@ -1136,26 +1133,17 @@ export ANSIBLE_GALAXY_SERVER_COMMUNITY_URL={aap_controller_web_url}/pulp_ansible
 export ANSIBLE_GALAXY_SERVER_COMMUNITY_TOKEN=$PAH_API_TOKEN</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>+
-. Use <code>ansible-galaxy</code> to install the new version of your collection from Private Automation hub</p>
-</div>
-<div class="paragraph">
-<p>+</p>
-</div>
+</li>
+<li>
+<p>Use <code>ansible-galaxy</code> to install the new version of your collection from Private Automation hub</p>
 <div class="listingblock execute">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"> ansible-galaxy collection install ansible_bootcamp.my_collection</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>+
-. Create the following ansible playbook in a file named <code>test_dad_joke.yml</code> to test the new collection in the <code>playbooks</code> directory of the collection.</p>
-</div>
-<div class="paragraph">
-<p>+
-.playbooks/test_dad_joke.yml</p>
-</div>
+</li>
+<li>
+<p>Create the following ansible playbook in a file named <code>test_dad_joke.yml</code> to test the new collection in the <code>playbooks</code> directory of the collection.</p>
 <div class="listingblock execute">
 <div class="title">playbooks/test_dad_joke.yml</div>
 <div class="content">
@@ -1169,17 +1157,16 @@ export ANSIBLE_GALAXY_SERVER_COMMUNITY_TOKEN=$PAH_API_TOKEN</code></pre>
     - ansible_bootcamp.my_collection.dad_joke</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>+
-. From the root of the collection, execute the playbook and if successful, it should return a Dad Joke</p>
-</div>
-<div class="paragraph">
-<p>+</p>
-</div>
+</li>
+<li>
+<p>From the root of the collection, execute the playbook and if successful, it should return a Dad Joke</p>
 <div class="listingblock execute">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"> ansible-playbook playbooks/test_dad_joke.yml</code></pre>
 </div>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>Verify the playbooks runs successfully and returns a dad joke in the output.</p>
