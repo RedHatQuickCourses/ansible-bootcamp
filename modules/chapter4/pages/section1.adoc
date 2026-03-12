@@ -1,9 +1,4 @@
-
-= Prerequisites
-
-Before starting this lab, ensure you have completed the Ansible Boot Camp Day 3 lab. 
-
-== 1: Introduction
+= Introduction
 
 One of the core goals of automation is automating a process end-to-end. In this case, it's creating a CI/CD pipeline for Ansible collection builds and updates. This lab will further the development of one of the previous labs, by automating the build and publishing of the development lifecycle of an Ansible collection using link:https://tekton.dev[Tekton,window=_blank] and the supported OpenShift Pipelines feature of OpenShift.
 
