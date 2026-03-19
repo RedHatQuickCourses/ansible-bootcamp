@@ -16,11 +16,11 @@ image::automation-controller-credentials-overview.png[Navigate to Credentials]
 +
 image::automation-controller-create-credential.png[Create Credentials]
 +
-. Enter the following details on the _Create Credential_ page:
+. Enter the following details on the RHDP login page:
 .. Name: `Hub`
 .. Credential type: `Container Registry`
 .. Authentication URL: `aap-aap.{openshift_cluster_ingress_domain}`
-.. Username: `aap_controller_admin_user`
+.. Username: `admin`
 .. Password: `aap_controller_admin_password`
 .. Verify SSL: Checked
 . Click **Create credential** to save the new credential.
@@ -36,7 +36,7 @@ Next, create a new credential to retrieve the source code from the Gitea reposit
 +
 image::automation-controller-create-credential-2.png[Create Credentials]
 +
-. Enter the following details on the _Create Credential_ page:
+. Enter the following details on the RHDP login page:
 .. Name: `Gitea`
 .. Credential type: `Source Control`
 .. Username: `gitea_user`
